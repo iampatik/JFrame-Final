@@ -66,8 +66,8 @@ public class Controller {
     }
 
     public int logInVerification(String username, String password) {
-        int success = 400;
-        return acc.login(username, password);
+        int success = 400; // error
+        return acc.login(username, password); // call the method from the model
     }
 
     public void viewBalance(String username) {

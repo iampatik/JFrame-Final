@@ -17,7 +17,7 @@ import medicineapp.*;
  *
  * @author 2ndyrGroupB
  */
-public final class Home1 extends javax.swing.JFrame {
+public final class Home extends javax.swing.JFrame {
 
     /**
      * Creates new form Home1
@@ -26,7 +26,7 @@ public final class Home1 extends javax.swing.JFrame {
     ArrayList<Medicine> medList = new ArrayList<>();
     int count = 0;
 
-    public Home1() throws SQLException, ClassNotFoundException {
+    public Home() throws SQLException, ClassNotFoundException {
         initComponents();
         this.setTitle("Home");
         this.created();
@@ -199,14 +199,15 @@ public final class Home1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -214,9 +215,9 @@ public final class Home1 extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    new Home1().setVisible(true);
+                    new Home().setVisible(true);
                 } catch (SQLException | ClassNotFoundException ex) {
-                    Logger.getLogger(Home1.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
 

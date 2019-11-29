@@ -26,7 +26,7 @@ public class customerView extends javax.swing.JFrame {
     /**
      * Creates new form customerView
      */
-    String uname;
+    String uname; // declared user for who is logged in
     
     public customerView() {
         initComponents();
@@ -36,7 +36,7 @@ public class customerView extends javax.swing.JFrame {
     public customerView(String username){
         initComponents();
         this.setTitle("Menu");
-        uname = username;
+        uname = username; // user's username that logged in
     }
 
     /**
@@ -148,13 +148,11 @@ public class customerView extends javax.swing.JFrame {
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         this.setVisible(false);
-        Home1 home = null;
         try {
-            home = new Home1();
+            Home home = null;
+            home = new Home();
             home.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(customerView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(customerView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -188,8 +186,8 @@ public class customerView extends javax.swing.JFrame {
 
     private void viewMedicinesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMedicinesButtonMouseClicked
 //        this.dispose();
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        new viewMedTable(uname).setVisible(true);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // to make this frame not to be hidden
+        new viewMedTable(uname).setVisible(true); // view medicine will show
     }//GEN-LAST:event_viewMedicinesButtonMouseClicked
 
     /**

@@ -178,25 +178,24 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_moneyFieldActionPerformed
 
     private void registerSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerSubmitButtonActionPerformed
-//        
-
         String uname = usernameField.getText();
         String pass = passwordField.getText();
         String conpass = confirmpassField.getText();
         String age1 = ageField.getText();
         String money1 = moneyField.getText();
 
-        Controller acc = new Controller();
-        if (acc.registerVerification(uname, pass, conpass, age1, money1) == true) {
+        Controller acc = new Controller(); // Imported from the other package then constantiated the controller class to access methods
+        if (acc.registerVerification(uname, pass, conpass, age1, money1) == true) { // if the returned value from the method that was called was true
             JOptionPane.showMessageDialog(null, "Successfully registered!");
             this.dispose();
-            Home1 home = null;
+            Home home = null;
             try {
-                home = new Home1();
+                home = new Home(); // constantiate the home class
+                home.setVisible(true); // proceed to the other frame named Home
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(register.class.getName()).log(Level.SEVERE, null, ex);
             }
-            home.setVisible(true);
+            
         }
 
 //        //int age = Integer.parseInt(age1);

@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import View.Home1;
+import View.Home;
 import View.adminView;
 import View.customerView;
 import View.register;
@@ -44,7 +44,7 @@ public class Model {
     }
 
     public int login(String username, String password) {
-        int success = 400;
+        int success = 400; // if error
         boolean loggedIn = false;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -54,13 +54,13 @@ public class Model {
 
             if (rs1.next()) {
                 loggedIn = true;
-                return success = 500;
+                return success = 500; // success as admin
             } else {
                 ResultSet rs = stmt.executeQuery("SELECT * FROM `users` where username = '" + username + "'");
                 if (rs.next()) {
                     if (rs.getString("password").equals(password)) {
                         loggedIn = true;
-                        return success = 600;
+                        return success = 600; // success as customer
                     }
                 }
             }

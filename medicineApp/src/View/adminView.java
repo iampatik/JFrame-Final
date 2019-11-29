@@ -112,9 +112,9 @@ public class adminView extends javax.swing.JFrame {
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         this.setVisible(false);
-        Home1 home = null;
+        Home home = null;
         try {
-            home = new Home1();
+            home = new Home();
             home.setVisible(true);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(adminView.class.getName()).log(Level.SEVERE, null, ex);

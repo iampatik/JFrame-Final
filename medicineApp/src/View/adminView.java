@@ -8,6 +8,7 @@ package View;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,9 +19,8 @@ public class adminView extends javax.swing.JFrame {
     /**
      * Creates new form adminView
      */
-    
     String uname = "Admin";
-    
+
     public adminView() {
         initComponents();
         this.setTitle("Menu");
@@ -119,21 +119,22 @@ public class adminView extends javax.swing.JFrame {
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(adminView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void addMedButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMedButtonMouseClicked
         this.dispose();
-        new addMedicineView().setVisible(true); 
+        new addMedicineView().setVisible(true);
     }//GEN-LAST:event_addMedButtonMouseClicked
 
     private void removeMedButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeMedButtonMouseClicked
         this.dispose();
-        new removeMedicineView().setVisible(true);  
+        new removeMedicineView().setVisible(true);
     }//GEN-LAST:event_removeMedButtonMouseClicked
 
     private void displayMedButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayMedButtonMouseClicked
-        this.dispose();
+//        this.dispose();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         new viewMedTable(uname).setVisible(true);
     }//GEN-LAST:event_displayMedButtonMouseClicked
 

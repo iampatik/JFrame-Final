@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import Controller.Controller;
+import javax.swing.JFrame;
 
 /**
  *
@@ -186,7 +187,8 @@ public class customerView extends javax.swing.JFrame {
     }//GEN-LAST:event_orderButtonMouseClicked
 
     private void viewMedicinesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMedicinesButtonMouseClicked
-        this.dispose();
+//        this.dispose();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         new viewMedTable(uname).setVisible(true);
     }//GEN-LAST:event_viewMedicinesButtonMouseClicked
 

@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,35 +37,23 @@ public class viewMedTable extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Medicine");
         uname = username;
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
-    
-//        String id = medicineTable.getColumnName(1);
-//        String genName = medicineTable.getColumnName(2);
-//        
-//        String brandName = medicineTable.getColumnName(3);
-//        String medType = medicineTable.getColumnName(4);
-//        String price = medicineTable.getColumnName(5);
-//        String stock = medicineTable.getColumnName(6);
-        
-        
-//        try{
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-//            Statement stmt = con.createStatement();
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine`");
-//            DefaultTableModel tm = (DefaultTableModel)medicineTable.getModel();
-//            tm.setRowCount(0);
-//            
-//            while(rs.next()){
-//                System.out.println("Basa ikaw!");
-//                Object table[] = {rs.getInt("id"),rs.getString("genericname"),rs.getString("brandname"),rs.getString("medicinetype"),rs.getDouble("price"),rs.getInt("stock")};
-//                tm.addRow(table);
-//            }
-//        }catch(Exception e){     
-//            JOptionPane.showMessageDialog(null, "Error connecting to database!");
-//        }
-
-
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine`");
+            DefaultTableModel tm = (DefaultTableModel)medicineTable.getModel();
+            tm.setRowCount(0);
+            
+            while(rs.next()){
+                Object table[] = {rs.getInt("id"),rs.getString("genericname"),rs.getString("brandname"),rs.getString("medicinetype"),rs.getDouble("price"),rs.getInt("stock")};
+                tm.addRow(table);
+            }
+        }catch(ClassNotFoundException | SQLException e){     
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
     }
 
     /**
@@ -82,8 +71,6 @@ public class viewMedTable extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         medicineTable = new javax.swing.JTable();
-        goBackButton = new javax.swing.JButton();
-        viewButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -147,61 +134,24 @@ public class viewMedTable extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(medicineTable);
 
-        goBackButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        goBackButton.setText("Back");
-        goBackButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        goBackButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                goBackButtonMouseClicked(evt);
-            }
-        });
-        goBackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goBackButtonActionPerformed(evt);
-            }
-        });
-
-        viewButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        viewButton.setText("View");
-        viewButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewButtonMouseClicked(evt);
-            }
-        });
-        viewButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(goBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(128, 128, 128)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(145, 145, 145))
             .addComponent(jScrollPane1)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(214, 214, 214))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(goBackButton))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                .addGap(39, 39, 39)
-                .addComponent(viewButton, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-                .addGap(26, 26, 26))
+                .addGap(117, 117, 117))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,48 +167,6 @@ public class viewMedTable extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_goBackButtonActionPerformed
-
-    private void goBackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goBackButtonMouseClicked
-        this.dispose();
-        if(uname.equals("Admin")){
-            adminView admin = new adminView();
-            admin.setVisible(true);
-        } else {
-            customerView custom = new customerView(uname);
-            custom.setVisible(true);
-        }
-    }//GEN-LAST:event_goBackButtonMouseClicked
-
-    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewButtonActionPerformed
-
-    private void viewButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewButtonMouseClicked
-        boolean stop = false;
-        
-        
-        
-        
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine`");
-            DefaultTableModel tm = (DefaultTableModel)medicineTable.getModel();
-            tm.setRowCount(0);
-            
-            while(rs.next()){
-                Object table[] = {rs.getInt("id"),rs.getString("genericname"),rs.getString("brandname"),rs.getString("medicinetype"),rs.getDouble("price"),rs.getInt("stock")};
-                tm.addRow(table);
-            }
-        }catch(ClassNotFoundException | SQLException e){     
-            JOptionPane.showMessageDialog(null, "Error connecting to database!");
-        }
-    }//GEN-LAST:event_viewButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -298,13 +206,11 @@ public class viewMedTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton goBackButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable medicineTable;
-    private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,7 +21,7 @@ import java.sql.ResultSet;
  *
  * @author tancincoja_sd2082
  */
-public class accountModel {
+public class Model {
 
     public boolean register(String username, String password, int age, double money) {
         boolean success = false;
@@ -89,5 +89,38 @@ public class accountModel {
         }
     }
     
+    public boolean addMedicine(String genName, String bName, double cost1, int qty, String value) {
+        boolean success = false;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+            Statement stmt = con.createStatement();
+            String sql = "INSERT INTO `medicine`(`genericname`, `brandname`, `medicinetype`, `price`, `stock`) VALUES ('" + genName + "','" + bName + "','" + value + "'," + cost1 + "," + qty + ")";
+            stmt.executeUpdate(sql);
+            success = true;
+            con.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+        return success;
+    }
     
+    public boolean removeMedicine(String brandname){
+        boolean success = false;
+        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+            Statement stmt = con.createStatement();
+            //ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + brandname + "'"); // only choose the medicine inputted from the view
+            String sql = "DELETE FROM `medicine` WHERE brandname='" + brandname + "'"; // query here         
+            stmt.executeUpdate(sql); // delete the medicine you've inputted earlier
+            success = true;
+            con.close();
+        } catch(ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(null,"Error connecting to database!");
+        }
+        return success;   
+    }
+
 }

@@ -12,15 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import Model.accountModel;
-import Model.medicineModel;
+import Model.Model;
 
 /**
  *
  * @author tancincoja_sd2082
  */
 public class Controller {
-    accountModel acc = new accountModel();
+    Model acc = new Model();
 
     public boolean registerVerification(String username, String password, String confirmPassword, String age1, String money1) {
         boolean success = false;
@@ -90,8 +89,7 @@ public class Controller {
                     double cost = Double.parseDouble(cost1);
                     try {
                         int quantity = Integer.parseInt(qty);
-                        medicineModel medModel = new medicineModel();
-                        success = medModel.addMedicine(genName, bName, cost, quantity, value);
+                        success = acc.addMedicine(genName, bName, cost, quantity, value);
                         return success;
                         
                     } catch (HeadlessException | NumberFormatException e) {
@@ -108,8 +106,7 @@ public class Controller {
         }
         return success;
     }
-    
-    
+
     public boolean removeMedicine(String brandname){
         boolean success = false;
         boolean exist = false;
@@ -124,9 +121,8 @@ public class Controller {
                 if (rs.getString("brandname").equals(brandname)) {
                     try {
                         exist = true; // signifies that medicine existed
-                        medicineModel medModel = new medicineModel();
                         
-                        return success = medModel.removeMedicine(brandname);
+                        return success = acc.removeMedicine(brandname);
                         
                     } catch (HeadlessException e) {
                         JOptionPane.showMessageDialog(null, "Error removing!!"); // This is something error while removing
@@ -141,6 +137,8 @@ public class Controller {
         }   
         return success;
     }
+    
+    
     
 
 }

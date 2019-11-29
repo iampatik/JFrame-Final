@@ -8,7 +8,7 @@ package View;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import Controller.accountController;
+import Controller.Controller;
 
 /**
  *
@@ -150,7 +150,7 @@ public class logIn extends javax.swing.JFrame {
     private void logInSubmitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInSubmitButtonMouseClicked
         String uname = usernameInput.getText();
         String pass = passwordInput.getText();
-        accountController acc = new accountController();
+        Controller acc = new Controller();
 
         if(acc.logInVerification(uname,pass) == 500){
             this.dispose();

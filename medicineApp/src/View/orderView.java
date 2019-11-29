@@ -47,7 +47,7 @@ public class orderView extends javax.swing.JFrame {
                 Object table[] = {rs.getInt("id"), rs.getString("genericname"), rs.getString("brandname"), rs.getString("medicinetype"), rs.getDouble("price"), rs.getInt("stock")};
                 tm.addRow(table);
             }
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
         }
 
@@ -229,7 +229,7 @@ public class orderView extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
                 Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine`");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='"+bname+"'");
 
                 while (rs.next()) {
                     int stock = rs.getInt("stock");
@@ -256,6 +256,7 @@ public class orderView extends javax.swing.JFrame {
                                             stmt.addBatch(sql);
                                             stmt.addBatch(sql1);
                                             stmt.executeBatch();
+                                            con.close();
                                             JOptionPane.showMessageDialog(null, "Ordered successfully!");
                                             this.dispose();
                                             new customerView(uname).setVisible(true);
@@ -267,6 +268,7 @@ public class orderView extends javax.swing.JFrame {
                                             stmt.addBatch(sql);
                                             stmt.addBatch(sql1);
                                             stmt.executeBatch();
+                                            con.close();
                                             JOptionPane.showMessageDialog(null, "Ordered successfully!");
                                             this.dispose();
                                             new customerView(uname).setVisible(true);
@@ -287,6 +289,7 @@ public class orderView extends javax.swing.JFrame {
                                         stmt.executeBatch();
                                         JOptionPane.showMessageDialog(null, "Ordered successfully!");
                                         this.dispose();
+                                        con.close();
                                         new customerView(uname).setVisible(true);
                                         break;
                                         
@@ -297,17 +300,17 @@ public class orderView extends javax.swing.JFrame {
                                         stmt.addBatch(sql);
                                         stmt.addBatch(sql1);
                                         stmt.executeBatch();
+                                        con.close();
                                         JOptionPane.showMessageDialog(null, "Ordered successfully!");
                                         this.dispose();
                                         new customerView(uname).setVisible(true);
                                         break;
                                     }
                                 }
-
                             }
-                            break;
                         }
                     }
+                    break;
                 }
                 con.close();
             } catch (ClassNotFoundException | SQLException e) {

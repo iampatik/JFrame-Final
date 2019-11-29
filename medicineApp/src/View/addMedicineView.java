@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import Controller.medicineController;
+import Controller.Controller;
 
 /**
  *
@@ -211,7 +211,7 @@ public class addMedicineView extends javax.swing.JFrame {
         String qty1 = stock.getText();
         String value = medTypes.getSelectedItem().toString();
         
-        medicineController medcontrol = new medicineController();
+        Controller medcontrol = new Controller();
         if(medcontrol.addMedicine(gname,bname,cost1,qty1,value) == true){
             this.dispose();
             new adminView().setVisible(true);

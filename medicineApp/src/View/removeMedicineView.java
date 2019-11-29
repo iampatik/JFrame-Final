@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Controller.medicineController;
+import Controller.Controller;
 
 /**
  *
@@ -215,7 +215,7 @@ public class removeMedicineView extends javax.swing.JFrame {
     private void removeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeButtonMouseClicked
         String bname = inputName.getText(); // inputted text from the view
         
-        medicineController medControl = new medicineController();
+        Controller medControl = new Controller();
         if (medControl.removeMedicine(bname) == true) {
             this.dispose();
             new adminView().setVisible(true);  // page will go back to the pharmacist menu view

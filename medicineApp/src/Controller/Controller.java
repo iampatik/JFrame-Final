@@ -5,7 +5,6 @@
  */
 package Controller;
 
-import View.adminView;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,13 +12,67 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import Model.accountModel;
 import Model.medicineModel;
 
 /**
  *
- * @author tancincoja_sd2022
+ * @author tancincoja_sd2082
  */
-public class medicineController {
+public class Controller {
+    accountModel acc = new accountModel();
+
+    public boolean registerVerification(String username, String password, String confirmPassword, String age1, String money1) {
+        boolean success = false;
+        if (username.length() >= 5) {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `users` WHERE username='" + username + "'");
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Username is already taken!");
+                } else {
+                    if (password.equals(confirmPassword)) {
+                        try {
+                            int age = Integer.parseInt(age1);
+                            if (age >= 18) {
+                                try {
+                                    double money = Double.parseDouble(money1);
+                                    
+                                    success = acc.register(username, password, age, money);
+                                    return success;
+
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog(null, "Money should be number!");
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Age should be legal!");
+                            }
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Age should be number!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Password do not match!");
+                    }
+                }
+            } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error connecting to database!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Username length should be atleast 5!");
+        }       
+        return success;
+    }
+    
+    public int logInVerification(String username, String password){
+        int success = 400;       
+        return acc.login(username, password);
+    }
+    
+    public void viewBalance(String username){
+        acc.viewBalance(username);      
+    }
     
     public boolean addMedicine(String genName, String bName, String cost1, String qty, String value){
         boolean success = false;
@@ -89,4 +142,5 @@ public class medicineController {
         return success;
     }
     
+
 }

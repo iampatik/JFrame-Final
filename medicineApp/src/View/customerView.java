@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Controller.Controller;
 
 /**
  *
@@ -53,7 +54,6 @@ public class customerView extends javax.swing.JFrame {
         viewBalanceButton = new javax.swing.JButton();
         orderButton = new javax.swing.JButton();
         viewMedicinesButton = new javax.swing.JButton();
-        changePassButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -83,7 +83,7 @@ public class customerView extends javax.swing.JFrame {
                 depositButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(depositButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 243, 200, 70));
+        jPanel1.add(depositButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 70));
 
         viewBalanceButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         viewBalanceButton.setText("View Balance");
@@ -111,7 +111,7 @@ public class customerView extends javax.swing.JFrame {
                 orderButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(orderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 200, 70));
+        jPanel1.add(orderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 200, 70));
 
         viewMedicinesButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         viewMedicinesButton.setText("View Medicines");
@@ -122,15 +122,6 @@ public class customerView extends javax.swing.JFrame {
         });
         jPanel1.add(viewMedicinesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 200, 70));
 
-        changePassButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        changePassButton.setText("Change Password");
-        changePassButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changePassButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(changePassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 200, 70));
-
         logOutButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         logOutButton.setText("Log Out");
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +129,7 @@ public class customerView extends javax.swing.JFrame {
                 logOutButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 200, 70));
+        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,28 +169,14 @@ public class customerView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_orderButtonActionPerformed
 
-    private void changePassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_changePassButtonActionPerformed
-
     private void viewBalanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBalanceButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_viewBalanceButtonActionPerformed
 
     private void viewBalanceButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewBalanceButtonMouseClicked
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `users` WHERE username='"+uname+"'");
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Your balance is: "+rs.getDouble("money")); 
-            }
-            
-            con.close(); 
-        } catch(HeadlessException | ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "Error!");
-        }
+        Controller control = new Controller();
+        control.viewBalance(uname);
+        
     }//GEN-LAST:event_viewBalanceButtonMouseClicked
 
     private void orderButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderButtonMouseClicked
@@ -250,7 +227,6 @@ public class customerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton changePassButton;
     private javax.swing.JButton depositButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

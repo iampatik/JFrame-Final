@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.accountController;
+import Controller.Controller;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -186,7 +186,7 @@ public class register extends javax.swing.JFrame {
         String age1 = ageField.getText();
         String money1 = moneyField.getText();
 
-        accountController acc = new accountController();
+        Controller acc = new Controller();
         if (acc.registerVerification(uname, pass, conpass, age1, money1) == true) {
             JOptionPane.showMessageDialog(null, "Successfully registered!");
             this.dispose();

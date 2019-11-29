@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Controller.Controller;
 
 /**
  *
@@ -34,7 +35,7 @@ public class orderView extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Medicine");
         uname = username;
-
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
@@ -50,7 +51,6 @@ public class orderView extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
         }
-
     }
 
     /**
@@ -220,105 +220,15 @@ public class orderView extends javax.swing.JFrame {
     }//GEN-LAST:event_orderButtonActionPerformed
 
     private void orderButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderButtonMouseClicked
+        Controller control = new Controller();
         String bname = medicineId.getText();
         String quantity1 = quantity.getText();
-
-        try {
-            int qty = Integer.parseInt(quantity1);
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-                Statement stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='"+bname+"'");
-
-                while (rs.next()) {
-                    int stock = rs.getInt("stock");
-                    double price = rs.getDouble("price");
-                    if (rs.getString("brandname").equals(bname)) {
-                        ResultSet rs1 = stmt.executeQuery("SELECT * FROM `users`");
-                        while (rs1.next()) {
-                            int age = rs1.getInt("age");
-                            double money = rs1.getDouble("money");
-                            double moneyLeftSenior = money - ((stock * price) * .80);
-                            double moneyLeftAdult = money - (stock * price);
-                            if (rs1.getString("username").equals(uname)) {
-                                System.out.println("prinitnig");
-                                if (stock < qty) {
-                                    JOptionPane.showMessageDialog(null, "Insufficient stock!");
-                                } else if (stock == qty) {
-                                    if (money < price) {
-                                        JOptionPane.showMessageDialog(null, "Insufficient money!");
-                                    } else {
-                                        if (age >= 18 && age <=59) {
-                                            JOptionPane.showMessageDialog(null, "The amount is: " + (qty * price));
-                                            String sql = "DELETE FROM `medicine` WHERE brandname='" + bname + "'";
-                                            String sql1 = "UPDATE `users` SET `money`=" + moneyLeftAdult + " WHERE username='" + uname + "'";
-                                            stmt.addBatch(sql);
-                                            stmt.addBatch(sql1);
-                                            stmt.executeBatch();
-                                            con.close();
-                                            JOptionPane.showMessageDialog(null, "Ordered successfully!");
-                                            this.dispose();
-                                            new customerView(uname).setVisible(true);
-                                            break;
-                                        } else {
-                                            JOptionPane.showMessageDialog(null, "The amount is: " + ((qty * price) * .80));
-                                            String sql = "DELETE FROM `medicine` WHERE brandname='" + bname + "'";
-                                            String sql1 = "UPDATE `users` SET `money`=" + moneyLeftSenior + " WHERE username='" + uname + "'";
-                                            stmt.addBatch(sql);
-                                            stmt.addBatch(sql1);
-                                            stmt.executeBatch();
-                                            con.close();
-                                            JOptionPane.showMessageDialog(null, "Ordered successfully!");
-                                            this.dispose();
-                                            new customerView(uname).setVisible(true);
-                                            break;
-                                        }
-                                    }
-                                }
-                            } else {
-                                if (money < price) {
-                                    JOptionPane.showMessageDialog(null, "Insufficient money!");
-                                } else {
-                                    if (age >= 18 && age <=59) {
-                                        JOptionPane.showMessageDialog(null, "The amount is: " + (qty * price));
-                                        String sql = "UPDATE `medicine` SET `stock`="+(stock-qty) +" WHERE brandname='" + bname + "'";
-                                        String sql1 = "UPDATE `users` SET `money`=" + moneyLeftAdult + " WHERE username='" + uname + "'";
-                                        stmt.addBatch(sql);
-                                        stmt.addBatch(sql1);
-                                        stmt.executeBatch();
-                                        JOptionPane.showMessageDialog(null, "Ordered successfully!");
-                                        this.dispose();
-                                        con.close();
-                                        new customerView(uname).setVisible(true);
-                                        break;
-                                        
-                                    } else {
-                                        JOptionPane.showMessageDialog(null, "The amount is: " + ((qty * price) * .80));
-                                        String sql = "UPDATE `medicine` SET `stock`="+(stock-qty) +" WHERE brandname='" + bname + "'";
-                                        String sql1 = "UPDATE `users` SET `money`=" + moneyLeftSenior + " WHERE username='" + uname + "'";
-                                        stmt.addBatch(sql);
-                                        stmt.addBatch(sql1);
-                                        stmt.executeBatch();
-                                        con.close();
-                                        JOptionPane.showMessageDialog(null, "Ordered successfully!");
-                                        this.dispose();
-                                        new customerView(uname).setVisible(true);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    break;
-                }
-                con.close();
-            } catch (ClassNotFoundException | SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error connecting to database!");
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Quantity should be a number!");
-        }
+        
+        if(control.order(uname, bname, quantity1) == true){
+            this.dispose();
+            new customerView(uname).setVisible(true);
+            JOptionPane.showMessageDialog(rootPane, "Ordered Successfully!");
+        } 
     }//GEN-LAST:event_orderButtonMouseClicked
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked

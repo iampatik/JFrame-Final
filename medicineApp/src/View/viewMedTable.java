@@ -10,6 +10,7 @@ import View.customerView;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -62,8 +63,7 @@ public class viewMedTable extends javax.swing.JFrame {
 //        }catch(Exception e){     
 //            JOptionPane.showMessageDialog(null, "Error connecting to database!");
 //        }
-        
-        
+
 
     }
 
@@ -230,9 +230,7 @@ public class viewMedTable extends javax.swing.JFrame {
         } else {
             customerView custom = new customerView(uname);
             custom.setVisible(true);
-        }        
-        
-        
+        }
     }//GEN-LAST:event_goBackButtonMouseClicked
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
@@ -240,6 +238,11 @@ public class viewMedTable extends javax.swing.JFrame {
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void viewButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewButtonMouseClicked
+        boolean stop = false;
+        
+        
+        
+        
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
@@ -252,7 +255,7 @@ public class viewMedTable extends javax.swing.JFrame {
                 Object table[] = {rs.getInt("id"),rs.getString("genericname"),rs.getString("brandname"),rs.getString("medicinetype"),rs.getDouble("price"),rs.getInt("stock")};
                 tm.addRow(table);
             }
-        }catch(Exception e){     
+        }catch(ClassNotFoundException | SQLException e){     
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
         }
     }//GEN-LAST:event_viewButtonMouseClicked

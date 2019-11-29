@@ -19,6 +19,7 @@ import Model.Model;
  * @author tancincoja_sd2082
  */
 public class Controller {
+
     Model acc = new Model();
 
     public boolean registerVerification(String username, String password, String confirmPassword, String age1, String money1) {
@@ -38,7 +39,7 @@ public class Controller {
                             if (age >= 18) {
                                 try {
                                     double money = Double.parseDouble(money1);
-                                    
+
                                     success = acc.register(username, password, age, money);
                                     return success;
 
@@ -60,28 +61,28 @@ public class Controller {
             }
         } else {
             JOptionPane.showMessageDialog(null, "Username length should be atleast 5!");
-        }       
+        }
         return success;
     }
-    
-    public int logInVerification(String username, String password){
-        int success = 400;       
+
+    public int logInVerification(String username, String password) {
+        int success = 400;
         return acc.login(username, password);
     }
-    
-    public void viewBalance(String username){
-        acc.viewBalance(username);      
+
+    public void viewBalance(String username) {
+        acc.viewBalance(username);
     }
-    
-    public boolean addMedicine(String genName, String bName, String cost1, String qty, String value){
+
+    public boolean addMedicine(String genName, String bName, String cost1, String qty, String value) {
         boolean success = false;
-        
-        try{
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + bName + "'");
-            
+
             if (rs.next()) {
                 JOptionPane.showMessageDialog(null, "Brand name already exist!");
             } else {
@@ -91,7 +92,7 @@ public class Controller {
                         int quantity = Integer.parseInt(qty);
                         success = acc.addMedicine(genName, bName, cost, quantity, value);
                         return success;
-                        
+
                     } catch (HeadlessException | NumberFormatException e) {
                         JOptionPane.showMessageDialog(null, "Stock should be a number!");
                     }
@@ -99,46 +100,80 @@ public class Controller {
                 } catch (HeadlessException | NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Price should be a number!");
                 }
-            }           
-        } catch(ClassNotFoundException | SQLException e){
+            }
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
-        
+
         }
         return success;
     }
 
-    public boolean removeMedicine(String brandname){
+    public boolean removeMedicine(String brandname) {
         boolean success = false;
         boolean exist = false;
-        
-        try{
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + brandname + "'"); // only choose the medicine inputted from the view
-        
+
             while (rs.next()) {
                 if (rs.getString("brandname").equals(brandname)) {
                     try {
                         exist = true; // signifies that medicine existed
-                        
+
                         return success = acc.removeMedicine(brandname);
-                        
+
                     } catch (HeadlessException e) {
                         JOptionPane.showMessageDialog(null, "Error removing!!"); // This is something error while removing
                     }
-                }                             
+                }
             }
-            if(exist == false){
+            if (exist == false) {
                 JOptionPane.showMessageDialog(null, "Brand name do not exist!");  // if brand name you entered do not exist from the database              
             }
-        } catch(ClassNotFoundException | SQLException | HeadlessException e){
-            JOptionPane.showMessageDialog(null,"Error connecting to database!");
-        }   
+        } catch (ClassNotFoundException | SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
         return success;
     }
-    
-    
-    
+
+    public boolean order(String uname, String bname, String quantity) {
+        boolean success = false;
+        boolean exist = false;
+
+        try {
+            int qty = Integer.parseInt(quantity);
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + bname + "'");
+                
+                while(rs.next()){
+                    int stock = rs.getInt("stock");
+                    double price = rs.getDouble("price");
+                    if (rs.getString("brandname").equals(bname)) {
+                        exist = true;                      
+                        return success = acc.order(uname, bname, qty);                  
+                    }
+                    break;
+                }
+                
+                if(exist == false){
+                    JOptionPane.showMessageDialog(null, "Medicine do not exist!");               
+                }
+
+            } catch (ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error connecting to database!");               
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Quantity should be a number!");
+        }
+
+        return success;
+    }
 
 }

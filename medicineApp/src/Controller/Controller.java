@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import Model.Model;
+import View.*;
 
 /**
  *
@@ -33,27 +34,31 @@ public class Controller {
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Username is already taken!");
                 } else {
-                    if (password.equals(confirmPassword)) {
-                        try {
-                            int age = Integer.parseInt(age1);
-                            if (age >= 18) {
-                                try {
-                                    double money = Double.parseDouble(money1);
-
-                                    success = acc.register(username, password, age, money);
-                                    return success;
-
-                                } catch (NumberFormatException e) {
-                                    JOptionPane.showMessageDialog(null, "Money should be number!");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(null, "Age should be legal!");
-                            }
-                        } catch (NumberFormatException e) {
-                            JOptionPane.showMessageDialog(null, "Age should be number!");
-                        }
+                    if (password.length() < 8) {
+                        JOptionPane.showMessageDialog(null, "Password length should at least be 8!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Password do not match!");
+                        if (password.equals(confirmPassword)) {
+                            try {
+                                int age = Integer.parseInt(age1);
+                                if (age >= 18) {
+                                    try {
+                                        double money = Double.parseDouble(money1);
+
+                                        success = acc.register(username, password, age, money);
+                                        return success;
+
+                                    } catch (NumberFormatException e) {
+                                        JOptionPane.showMessageDialog(null, "Money should be number!");
+                                    }
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "Age should be legal!");
+                                }
+                            } catch (NumberFormatException e) {
+                                JOptionPane.showMessageDialog(null, "Age should be number!");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Password do not match!");
+                        }
                     }
                 }
             } catch (HeadlessException | ClassNotFoundException | SQLException e) {
@@ -150,29 +155,43 @@ public class Controller {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM `medicine` WHERE brandname='" + bname + "'");
-                
-                while(rs.next()){
+
+                while (rs.next()) {
                     int stock = rs.getInt("stock");
                     double price = rs.getDouble("price");
                     if (rs.getString("brandname").equals(bname)) {
-                        exist = true;                      
-                        return success = acc.order(uname, bname, qty);                  
+                        exist = true;
+                        return success = acc.order(uname, bname, qty);
                     }
                     break;
                 }
-                
-                if(exist == false){
-                    JOptionPane.showMessageDialog(null, "Medicine do not exist!");               
+
+                if (exist == false) {
+                    JOptionPane.showMessageDialog(null, "Medicine do not exist!");
                 }
 
             } catch (ClassNotFoundException | SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error connecting to database!");               
+                JOptionPane.showMessageDialog(null, "Error connecting to database!");
             }
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Quantity should be a number!");
         }
 
+        return success;
+    }
+
+    public boolean deposit(String username, String money) {
+        boolean success = false;
+
+        try {
+            double cash = Double.parseDouble(money);
+            if (acc.deposit(username, cash) == true) {
+                return success = true;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Cash should be number!");
+        }
         return success;
     }
 

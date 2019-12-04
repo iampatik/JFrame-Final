@@ -208,4 +208,28 @@ public class Model {
         return success;
     }
 
+    public boolean deposit(String username, double cash) {
+        boolean success = false;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM `users` where username = '" + username + "'");
+
+            if (rs.next()) {
+                double prevAmount = rs.getDouble("money");
+                String sql = "UPDATE `users` SET `money`=" + (cash + prevAmount) + " WHERE username ='" + username + "'";
+                stmt.executeUpdate(sql);
+                return success = true;
+            }
+            con.close();
+        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+        }
+
+        return success;
+    }
+
 }

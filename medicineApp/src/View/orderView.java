@@ -49,7 +49,7 @@ public class orderView extends javax.swing.JFrame {
                 tm.addRow(table);
             }
         } catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error connecting to database!");
+            JOptionPane.showMessageDialog(rootPane, "Error connecting to database!");
         }
     }
 

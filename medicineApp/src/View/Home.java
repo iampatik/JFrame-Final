@@ -29,7 +29,7 @@ public final class Home extends javax.swing.JFrame {
     public Home() throws SQLException, ClassNotFoundException {
         initComponents();
         this.setTitle("Home");
-        this.created();
+//        this.created();
     }
 
     /**
@@ -47,6 +47,8 @@ public final class Home extends javax.swing.JFrame {
         registerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(229, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Welcome to Patchan's Pharmacy!");
@@ -78,10 +80,10 @@ public final class Home extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(162, 162, 162)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -91,9 +93,9 @@ public final class Home extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(75, 75, 75)
                 .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addGap(82, 82, 82)
                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,64 +112,64 @@ public final class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void created() throws SQLException, ClassNotFoundException {
-        userList.add(new Adult(1, "Patchan", "Gwapoako", 19, 1000));
-        userList.add(new Adult(2, "Patrick", "Pogiako", 19, 5000));
-        userList.add(new SeniorCitizen(3, "Patik", "P@ssw0rd", 62, 5000));
-        userList.add(new User("Admin", "Admin"));
-        medList.add(new BodyPain(1, "Ibuprofen + Paracetamol", "Alaxan", "Body Pain", 8.25, 100));
-        medList.add(new BodyPain(2, "Paracetamol Caffeine", "Rexidol", "Body Pain", 15.50, 75));
-        medList.add(new BodyPain(3, "Ibuprofen", "Medicol Advance", "Body Pain", 6.00, 100));
-        medList.add(new Allergies(4, "Cetirizine", "Allerkid", "Allergies", 8, 50));
-        medList.add(new Allergies(5, "Loratadine", "Allerta", "Allergies", 16, 50));
-        medList.add(new Allergies(6, "Mometasone Furoate", "Allerta Dermatec", "Allergies", 24, 50));
-        medList.add(new Cough(7, "Carbocisteine", "Solmux", "Cough", 17, 50));
-        medList.add(new Cough(8, "Ambroxol", "Myracof", "Cough", 22, 50));
-        medList.add(new Cough(9, "Ambroxol", "Expel OD", "Cough", 29, 50));
-        medList.add(new Headache(10, "Paracetamol", "Biogesic 325", "Headache", 6, 50));
-        medList.add(new Headache(11, "Paracetamol", "Biogesic", "Headache", 8, 50));
-        medList.add(new Headache(12, "Paracetamol", "UHP Fevertab", "Headache", 5, 50));
-
-        
-        
-        
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-        java.sql.Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM `users`");
-
-        while (rs.next() == false) {           
-            try {
-                System.out.println("Run");
-
-                for (int i = 0; i < userList.size(); i++) {
-                    if (userList.get(i).getUserName().equals("Admin")) {
-                        System.out.println("Going to update");
-                        String syntax = userList.get(i).getUserName() + "','" + userList.get(i).getPassWord();
-                        String sql = "INSERT INTO `admin`(`username`, `password`) VALUES ('" + syntax + "')";
-                        stmt.executeUpdate(sql);
-
-                    } else {
-                        System.out.println("Naa diri ang pag-read");
-                        String synt = "'" + userList.get(i).getUserName() + "','" + userList.get(i).getPassWord() + "'," + Integer.toString(userList.get(i).getAge()) + "," + Double.toString(userList.get(i).getMoney());
-                        String sql = "INSERT INTO `users`(`username`, `password`, `age`, `money`) VALUES (" + synt + ")";
-                        stmt.executeUpdate(sql);
-
-                    }
-                }
-                for (int i = 0; i < medList.size(); i++) {
-                    //System.out.println("Running from medicine");
-                    String med = "INSERT INTO `medicine`( `genericname`, `brandname`, `medicinetype`, `price`, `stock`) VALUES ('" + medList.get(i).getGenericName() + "','" + medList.get(i).getBrandName() + "','" + medList.get(i).getMedicineType() + "','" + String.valueOf(medList.get(i).getPrice()) + "','" + String.valueOf(medList.get(i).getStock()) + "')";
-                    stmt.executeUpdate(med);
-                }
-                //con.close();
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
-    }
+//    public void created() throws SQLException, ClassNotFoundException {
+//        userList.add(new Adult(1, "Patchan", "Gwapoako", 19, 1000));
+//        userList.add(new Adult(2, "Patrick", "Pogiako", 19, 5000));
+//        userList.add(new SeniorCitizen(3, "Patik", "P@ssw0rd", 62, 5000));
+//        userList.add(new User("Admin", "Admin"));
+//        medList.add(new BodyPain(1, "Ibuprofen + Paracetamol", "Alaxan", "Body Pain", 8.25, 100));
+//        medList.add(new BodyPain(2, "Paracetamol Caffeine", "Rexidol", "Body Pain", 15.50, 75));
+//        medList.add(new BodyPain(3, "Ibuprofen", "Medicol Advance", "Body Pain", 6.00, 100));
+//        medList.add(new Allergies(4, "Cetirizine", "Allerkid", "Allergies", 8, 50));
+//        medList.add(new Allergies(5, "Loratadine", "Allerta", "Allergies", 16, 50));
+//        medList.add(new Allergies(6, "Mometasone Furoate", "Allerta Dermatec", "Allergies", 24, 50));
+//        medList.add(new Cough(7, "Carbocisteine", "Solmux", "Cough", 17, 50));
+//        medList.add(new Cough(8, "Ambroxol", "Myracof", "Cough", 22, 50));
+//        medList.add(new Cough(9, "Ambroxol", "Expel OD", "Cough", 29, 50));
+//        medList.add(new Headache(10, "Paracetamol", "Biogesic 325", "Headache", 6, 50));
+//        medList.add(new Headache(11, "Paracetamol", "Biogesic", "Headache", 8, 50));
+//        medList.add(new Headache(12, "Paracetamol", "UHP Fevertab", "Headache", 5, 50));
+//
+//        
+//        
+//        
+//        Class.forName("com.mysql.jdbc.Driver");
+//        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
+//        java.sql.Statement stmt = con.createStatement();
+//        ResultSet rs = stmt.executeQuery("SELECT * FROM `users`");
+//
+//        while (rs.next() == false) {           
+//            try {
+//                System.out.println("Run");
+//
+//                for (int i = 0; i < userList.size(); i++) {
+//                    if (userList.get(i).getUserName().equals("Admin")) {
+//                        System.out.println("Going to update");
+//                        String syntax = userList.get(i).getUserName() + "','" + userList.get(i).getPassWord();
+//                        String sql = "INSERT INTO `admin`(`username`, `password`) VALUES ('" + syntax + "')";
+//                        stmt.executeUpdate(sql);
+//
+//                    } else {
+//                        System.out.println("Naa diri ang pag-read");
+//                        String synt = "'" + userList.get(i).getUserName() + "','" + userList.get(i).getPassWord() + "'," + Integer.toString(userList.get(i).getAge()) + "," + Double.toString(userList.get(i).getMoney());
+//                        String sql = "INSERT INTO `users`(`username`, `password`, `age`, `money`) VALUES (" + synt + ")";
+//                        stmt.executeUpdate(sql);
+//
+//                    }
+//                }
+//                for (int i = 0; i < medList.size(); i++) {
+//                    //System.out.println("Running from medicine");
+//                    String med = "INSERT INTO `medicine`( `genericname`, `brandname`, `medicinetype`, `price`, `stock`) VALUES ('" + medList.get(i).getGenericName() + "','" + medList.get(i).getBrandName() + "','" + medList.get(i).getMedicineType() + "','" + String.valueOf(medList.get(i).getPrice()) + "','" + String.valueOf(medList.get(i).getStock()) + "')";
+//                    stmt.executeUpdate(med);
+//                }
+//                //con.close();
+//
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, e);
+//            }
+//        }
+//
+//    }
 
 
     private void logInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInButtonMouseClicked

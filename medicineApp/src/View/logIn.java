@@ -153,15 +153,15 @@ public class logIn extends javax.swing.JFrame {
         Controller acc = new Controller();
 
         if(acc.logInVerification(uname,pass) == 500){
+            JOptionPane.showMessageDialog(rootPane, "Logged in as administrator!");
             this.dispose();
             new adminView().setVisible(true);
-            JOptionPane.showMessageDialog(null, "Logged in as administrator!");
         } else if(acc.logInVerification(uname,pass) == 600){
+            JOptionPane.showMessageDialog(rootPane, "Logged in as customer!");
             this.dispose();
             new customerView(uname).setVisible(true);
-            JOptionPane.showMessageDialog(null, "Logged in as customer!");
         } else {
-            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            JOptionPane.showMessageDialog(rootPane, "Invalid Credentials");
         }
 
     }//GEN-LAST:event_logInSubmitButtonMouseClicked

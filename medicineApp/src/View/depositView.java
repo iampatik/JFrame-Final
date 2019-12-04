@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import Controller.Controller;
 
 /**
  *
@@ -164,33 +165,13 @@ public class depositView extends javax.swing.JFrame {
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
         String amount1 = amountField.getText();
         Statement stmt = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
-            stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM `users` where username = '" + uname + "'");
-            
-            if (rs.next()) {
-                System.out.println("Entered!");
-                try {
-                    double amount = Double.parseDouble(amount1);
-                    double prevAmount = rs.getDouble("money");
-                    String sql = "UPDATE `users` SET `money`=" + (amount + prevAmount) + " WHERE username ='" + uname + "'";
-                    stmt.executeUpdate(sql);
-                    this.dispose();
-                    customerView custom = new customerView(uname);
-                    custom.setVisible(true);                   
-                    JOptionPane.showMessageDialog(null, "Updated!");
-                } catch (HeadlessException | NumberFormatException | SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Money should be a number!");
-                }
-            }
-            con.close();
-        } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Error!");
+        
+        Controller control = new Controller();
+        if(control.deposit(uname, amount1) == true){
+            JOptionPane.showMessageDialog(rootPane, "Updated!");
+            customerView custom = new customerView(uname);
+            custom.setVisible(true);
         }
-
     }//GEN-LAST:event_depositButtonActionPerformed
 
     private void amountFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountFieldActionPerformed

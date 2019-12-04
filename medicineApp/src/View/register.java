@@ -186,7 +186,7 @@ public class register extends javax.swing.JFrame {
 
         Controller acc = new Controller(); // Imported from the other package then constantiated the controller class to access methods
         if (acc.registerVerification(uname, pass, conpass, age1, money1) == true) { // if the returned value from the method that was called was true
-            JOptionPane.showMessageDialog(null, "Successfully registered!");
+            JOptionPane.showMessageDialog(rootPane, "Successfully registered!");
             this.dispose();
             Home home = null;
             try {

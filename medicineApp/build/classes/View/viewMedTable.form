@@ -158,9 +158,6 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
-              <BindingProperties>
-                <BindingProperty name="elements" source="jPanel1" sourcePath="${}" target="medicineTable" targetPath="elements" updateStrategy="0" immediately="true"/>
-              </BindingProperties>
             </Component>
           </SubComponents>
         </Container>

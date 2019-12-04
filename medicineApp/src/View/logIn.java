@@ -19,6 +19,9 @@ public class logIn extends javax.swing.JFrame {
     /**
      * Creates new form logIn
      */
+    
+    Controller acc = new Controller();
+    
     public logIn() {
         initComponents();
         this.setTitle("Log In");
@@ -150,7 +153,6 @@ public class logIn extends javax.swing.JFrame {
     private void logInSubmitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInSubmitButtonMouseClicked
         String uname = usernameInput.getText();
         String pass = passwordInput.getText();
-        Controller acc = new Controller();
 
         if(acc.logInVerification(uname,pass) == 500){
             JOptionPane.showMessageDialog(rootPane, "Logged in as administrator!");

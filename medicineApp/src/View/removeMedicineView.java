@@ -38,22 +38,22 @@ public class removeMedicineView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        removeMedicinePanel = new javax.swing.JPanel();
+        removeMedicineLabel = new javax.swing.JLabel();
+        upSeparator = new javax.swing.JSeparator();
+        medTableView = new javax.swing.JScrollPane();
         medTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
+        brandNameLabel = new javax.swing.JLabel();
+        downSeparator = new javax.swing.JSeparator();
         inputName = new javax.swing.JTextField();
         removeButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        viewMedButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jLabel2.setText("Remove Medicine");
+        removeMedicineLabel.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        removeMedicineLabel.setText("Remove Medicine");
 
         medTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,10 +74,10 @@ public class removeMedicineView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(medTable);
+        medTableView.setViewportView(medTable);
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel1.setText("Enter Brand Name to remove:");
+        brandNameLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        brandNameLabel.setText("Enter Brand Name to remove:");
 
         inputName.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         inputName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -103,67 +103,67 @@ public class removeMedicineView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jButton1.setText("View");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        viewMedButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        viewMedButton.setText("View");
+        viewMedButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                viewMedButtonMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout removeMedicinePanelLayout = new javax.swing.GroupLayout(removeMedicinePanel);
+        removeMedicinePanel.setLayout(removeMedicinePanelLayout);
+        removeMedicinePanelLayout.setHorizontalGroup(
+            removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, removeMedicinePanelLayout.createSequentialGroup()
                 .addGap(232, 232, 232)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeMedicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(228, 228, 228))
-            .addComponent(jSeparator1)
-            .addComponent(jSeparator2)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addComponent(upSeparator)
+            .addComponent(downSeparator)
+            .addGroup(removeMedicinePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(medTableView)
                 .addGap(13, 13, 13))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(removeMedicinePanelLayout.createSequentialGroup()
+                .addGroup(removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(removeMedicinePanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(brandNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(17, 17, 17))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(removeMedicinePanelLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(viewMedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(59, 59, 59)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(removeMedicinePanelLayout.createSequentialGroup()
                         .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(75, 75, 75)
                         .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(64, 64, 64))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(removeMedicinePanelLayout.createSequentialGroup()
                         .addComponent(inputName)
                         .addGap(21, 21, 21))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        removeMedicinePanelLayout.setVerticalGroup(
+            removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, removeMedicinePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeMedicineLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
+                .addComponent(upSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                .addComponent(medTableView, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                 .addGap(35, 35, 35)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
+                .addComponent(downSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGroup(removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(brandNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                     .addComponent(inputName))
                 .addGap(58, 58, 58)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewMedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(removeMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(34, 34, 34))
@@ -173,12 +173,12 @@ public class removeMedicineView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(removeMedicinePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(removeMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -191,10 +191,10 @@ public class removeMedicineView extends javax.swing.JFrame {
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         this.dispose();
-        new adminView().setVisible(true);
+        new pharmacistView().setVisible(true);
     }//GEN-LAST:event_cancelButtonMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void viewMedButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMedButtonMouseClicked
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/jframe", "root", "");
@@ -210,17 +210,17 @@ public class removeMedicineView extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error connecting to database!");
         }
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_viewMedButtonMouseClicked
 
     private void removeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeButtonMouseClicked
         String bname = inputName.getText(); // inputted text from the view
         
         Controller medControl = new Controller();
         if (medControl.removeMedicine(bname) == true) {
+            JOptionPane.showMessageDialog(rootPane, "Successfully removed!"); // tells us that it is successful  
             this.dispose();
-            new adminView().setVisible(true);  // page will go back to the pharmacist menu view
-            JOptionPane.showMessageDialog(null, "Successfully removed!"); // tells us that it is successful       
-        }        
+            new pharmacistView().setVisible(true);  // page will go back to the pharmacist menu view
+            }        
     }//GEN-LAST:event_removeButtonMouseClicked
 
     /**
@@ -260,16 +260,16 @@ public class removeMedicineView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel brandNameLabel;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JSeparator downSeparator;
     private javax.swing.JTextField inputName;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable medTable;
+    private javax.swing.JScrollPane medTableView;
     private javax.swing.JButton removeButton;
+    private javax.swing.JLabel removeMedicineLabel;
+    private javax.swing.JPanel removeMedicinePanel;
+    private javax.swing.JSeparator upSeparator;
+    private javax.swing.JButton viewMedButton;
     // End of variables declaration//GEN-END:variables
 }

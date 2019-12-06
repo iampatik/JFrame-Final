@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import View.Home;
-import View.adminView;
+import View.pharmacistView;
 import View.customerView;
 import View.register;
 import java.awt.HeadlessException;

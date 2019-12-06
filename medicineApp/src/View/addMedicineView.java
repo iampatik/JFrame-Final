@@ -37,37 +37,37 @@ public class addMedicineView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        addMedPanel = new javax.swing.JPanel();
+        addMedicineLabel = new javax.swing.JLabel();
+        genericNameLabel = new javax.swing.JLabel();
+        brandNameLabel = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        stockLabel = new javax.swing.JLabel();
         bName = new javax.swing.JTextField();
         gName = new javax.swing.JTextField();
         price = new javax.swing.JTextField();
         stock = new javax.swing.JTextField();
         addMedButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        medTypes = new javax.swing.JComboBox<String>();
-        jLabel6 = new javax.swing.JLabel();
+        cancelButton = new javax.swing.JButton();
+        medTypes = new javax.swing.JComboBox<>();
+        medTypeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jLabel1.setText("Add Medicine");
+        addMedicineLabel.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        addMedicineLabel.setText("Add Medicine");
 
-        jLabel2.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel2.setText("Generic Name:");
+        genericNameLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        genericNameLabel.setText("Generic Name:");
 
-        jLabel3.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel3.setText("Brand Name:");
+        brandNameLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        brandNameLabel.setText("Brand Name:");
 
-        jLabel4.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel4.setText("Price:");
+        priceLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        priceLabel.setText("Price:");
 
-        jLabel5.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel5.setText("Stock:");
+        stockLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        stockLabel.setText("Stock:");
 
         bName.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         bName.addActionListener(new java.awt.event.ActionListener() {
@@ -95,88 +95,88 @@ public class addMedicineView extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
-        jButton1.setText("Cancel");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        cancelButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
+        cancelButton.setText("Cancel");
+        cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                cancelButtonMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
         medTypes.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        medTypes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cough", "Headache", "Body Pain", "Allergies" }));
+        medTypes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cough", "Headache", "Body Pain", "Allergies" }));
         medTypes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 medTypesActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jLabel6.setText("Medicine Type:");
+        medTypeLabel.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        medTypeLabel.setText("Medicine Type:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout addMedPanelLayout = new javax.swing.GroupLayout(addMedPanel);
+        addMedPanel.setLayout(addMedPanelLayout);
+        addMedPanelLayout.setHorizontalGroup(
+            addMedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMedPanelLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(addMedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(42, 42, 42)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                 .addGap(72, 72, 72))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(addMedPanelLayout.createSequentialGroup()
+                .addGroup(addMedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMedPanelLayout.createSequentialGroup()
                         .addGap(175, 175, 175)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(addMedicineLabel))
+                    .addGroup(addMedPanelLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(addMedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(gName, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
+                            .addComponent(priceLabel)
                             .addComponent(bName)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
+                            .addComponent(brandNameLabel)
+                            .addComponent(genericNameLabel)
+                            .addComponent(stockLabel)
                             .addComponent(stock)
                             .addComponent(price)
-                            .addComponent(jLabel6)
+                            .addComponent(medTypeLabel)
                             .addComponent(medTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        addMedPanelLayout.setVerticalGroup(
+            addMedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMedPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(addMedicineLabel)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel3)
+                .addComponent(brandNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(genericNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(priceLabel)
                 .addGap(5, 5, 5)
                 .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(stockLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(medTypeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(medTypes, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(addMedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addMedButton))
                 .addGap(32, 32, 32))
         );
@@ -185,24 +185,24 @@ public class addMedicineView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addMedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addMedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
         this.dispose();
-        new adminView().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+        new pharmacistView().setVisible(true);
+    }//GEN-LAST:event_cancelButtonMouseClicked
 
     private void addMedButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMedButtonMouseClicked
         String gname = gName.getText();
@@ -213,10 +213,10 @@ public class addMedicineView extends javax.swing.JFrame {
         
         Controller medcontrol = new Controller();
         if(medcontrol.addMedicine(gname,bname,cost1,qty1,value) == true){
+            JOptionPane.showMessageDialog(rootPane, "Medicine added!");
             this.dispose();
-            new adminView().setVisible(true);
-            JOptionPane.showMessageDialog(null, "Medicine added!");
-        }
+            new pharmacistView().setVisible(true);
+            }
         
         
     }//GEN-LAST:event_addMedButtonMouseClicked
@@ -271,18 +271,18 @@ public class addMedicineView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addMedButton;
+    private javax.swing.JPanel addMedPanel;
+    private javax.swing.JLabel addMedicineLabel;
     private javax.swing.JTextField bName;
+    private javax.swing.JLabel brandNameLabel;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JTextField gName;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel genericNameLabel;
+    private javax.swing.JLabel medTypeLabel;
     private javax.swing.JComboBox<String> medTypes;
     private javax.swing.JTextField price;
+    private javax.swing.JLabel priceLabel;
     private javax.swing.JTextField stock;
+    private javax.swing.JLabel stockLabel;
     // End of variables declaration//GEN-END:variables
 }

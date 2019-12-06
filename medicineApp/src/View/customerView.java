@@ -49,8 +49,8 @@ public class customerView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        customerViewPanel = new javax.swing.JPanel();
+        menuLabel = new javax.swing.JLabel();
         depositButton = new javax.swing.JButton();
         viewBalanceButton = new javax.swing.JButton();
         orderButton = new javax.swing.JButton();
@@ -70,12 +70,12 @@ public class customerView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        customerViewPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menu");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 11, 386, 73));
+        menuLabel.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
+        menuLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        menuLabel.setText("Menu");
+        customerViewPanel.add(menuLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 11, 386, 73));
 
         depositButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         depositButton.setText("Deposit Balance");
@@ -84,7 +84,7 @@ public class customerView extends javax.swing.JFrame {
                 depositButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(depositButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 70));
+        customerViewPanel.add(depositButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 200, 70));
 
         viewBalanceButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         viewBalanceButton.setText("View Balance");
@@ -98,7 +98,7 @@ public class customerView extends javax.swing.JFrame {
                 viewBalanceButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(viewBalanceButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 129, 200, 70));
+        customerViewPanel.add(viewBalanceButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 129, 200, 70));
 
         orderButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         orderButton.setText("Order");
@@ -112,7 +112,7 @@ public class customerView extends javax.swing.JFrame {
                 orderButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(orderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 200, 70));
+        customerViewPanel.add(orderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 200, 70));
 
         viewMedicinesButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         viewMedicinesButton.setText("View Medicines");
@@ -121,7 +121,7 @@ public class customerView extends javax.swing.JFrame {
                 viewMedicinesButtonMouseClicked(evt);
             }
         });
-        jPanel1.add(viewMedicinesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 200, 70));
+        customerViewPanel.add(viewMedicinesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 200, 70));
 
         logOutButton.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         logOutButton.setText("Log Out");
@@ -130,17 +130,17 @@ public class customerView extends javax.swing.JFrame {
                 logOutButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, 70));
+        customerViewPanel.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(customerViewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+            .addComponent(customerViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
         );
 
         pack();
@@ -227,11 +227,11 @@ public class customerView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel customerViewPanel;
     private javax.swing.JButton depositButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton logOutButton;
+    private javax.swing.JLabel menuLabel;
     private javax.swing.JButton orderButton;
     private javax.swing.JButton viewBalanceButton;
     private javax.swing.JButton viewMedicinesButton;

@@ -14,14 +14,14 @@ import javax.swing.JFrame;
  *
  * @author tancincoja_sd2022
  */
-public class adminView extends javax.swing.JFrame {
+public class pharmacistView extends javax.swing.JFrame {
 
     /**
      * Creates new form adminView
      */
     String uname = "Admin";
 
-    public adminView() {
+    public pharmacistView() {
         initComponents();
         this.setTitle("Menu");
     }
@@ -35,8 +35,8 @@ public class adminView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pharmaPanel = new javax.swing.JPanel();
+        Menu = new javax.swing.JLabel();
         addMedButton = new javax.swing.JButton();
         removeMedButton = new javax.swing.JButton();
         displayMedButton = new javax.swing.JButton();
@@ -44,12 +44,12 @@ public class adminView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pharmaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menu");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 11, -1, -1));
+        Menu.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
+        Menu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Menu.setText("Menu");
+        pharmaPanel.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 11, -1, -1));
 
         addMedButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         addMedButton.setText("Add Medicine");
@@ -63,7 +63,7 @@ public class adminView extends javax.swing.JFrame {
                 addMedButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(addMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 220, 100));
+        pharmaPanel.add(addMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 220, 100));
 
         removeMedButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         removeMedButton.setText("Remove Medicine");
@@ -72,7 +72,7 @@ public class adminView extends javax.swing.JFrame {
                 removeMedButtonMouseClicked(evt);
             }
         });
-        jPanel1.add(removeMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 220, 100));
+        pharmaPanel.add(removeMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 220, 100));
 
         displayMedButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         displayMedButton.setText("Display Medicine");
@@ -81,7 +81,7 @@ public class adminView extends javax.swing.JFrame {
                 displayMedButtonMouseClicked(evt);
             }
         });
-        jPanel1.add(displayMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 220, 100));
+        pharmaPanel.add(displayMedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 220, 100));
 
         logOutButton.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         logOutButton.setText("Log Out");
@@ -90,20 +90,20 @@ public class adminView extends javax.swing.JFrame {
                 logOutButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 220, 100));
+        pharmaPanel.add(logOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 220, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pharmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pharmaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -117,7 +117,7 @@ public class adminView extends javax.swing.JFrame {
             home = new Home();
             home.setVisible(true);
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(adminView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pharmacistView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_logOutButtonActionPerformed
@@ -159,31 +159,32 @@ public class adminView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pharmacistView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pharmacistView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pharmacistView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pharmacistView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new adminView().setVisible(true);
+                new pharmacistView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Menu;
     private javax.swing.JButton addMedButton;
     private javax.swing.JButton displayMedButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton logOutButton;
+    private javax.swing.JPanel pharmaPanel;
     private javax.swing.JButton removeMedButton;
     // End of variables declaration//GEN-END:variables
 }

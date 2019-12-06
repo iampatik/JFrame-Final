@@ -157,7 +157,7 @@ public class logIn extends javax.swing.JFrame {
         if(acc.logInVerification(uname,pass) == 500){
             JOptionPane.showMessageDialog(rootPane, "Logged in as administrator!");
             this.dispose();
-            new adminView().setVisible(true);
+            new pharmacistView().setVisible(true);
         } else if(acc.logInVerification(uname,pass) == 600){
             JOptionPane.showMessageDialog(rootPane, "Logged in as customer!");
             this.dispose();

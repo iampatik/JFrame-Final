@@ -5,7 +5,7 @@
  */
 package zJFrame;
 
-import View.adminView;
+import View.pharmacistView;
 import View.customerView;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -162,7 +162,7 @@ public class ordersView extends javax.swing.JFrame {
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backButtonMouseClicked
         if(uname.equals("Admin")){
             this.dispose();
-            new adminView().setVisible(true);
+            new pharmacistView().setVisible(true);
         }
         else {
             this.dispose();
